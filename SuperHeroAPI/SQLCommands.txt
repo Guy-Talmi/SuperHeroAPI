@@ -1,0 +1,27 @@
+﻿SELECT TOP (1000) [Id]
+      ,[TimeStamp]
+      ,[Level]
+      ,[Logger]
+      ,[Message]
+      ,[Exception]
+  FROM [superherodb].[dbo].[LogTable]
+  WHERE Level = 'Error'
+  ORDER BY Id DESC
+
+
+
+--SELECT * 
+--FROM [superherodb].[dbo].[LogTable] 
+--WHERE Level = 'Error'
+
+--CREATE TABLE LogTable
+--(
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    TimeStamp DATETIME,
+--    Level NVARCHAR(50),
+--    Logger NVARCHAR(256),
+--    Message NVARCHAR(MAX),
+--    Exception NVARCHAR(MAX)
+--)
+
+TRUNCATE TABLE LogTable

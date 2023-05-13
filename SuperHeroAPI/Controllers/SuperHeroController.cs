@@ -10,15 +10,19 @@ namespace SuperHeroAPI.Controllers
     public class SuperHeroController : ControllerBase
     {
         private ISuperHeroService _superHeroService;
+        private ILogger<SuperHeroController> _logger;
 
-        public SuperHeroController(ISuperHeroService superHeroService)
+        public SuperHeroController(ISuperHeroService superHeroService, ILogger<SuperHeroController> logger)
         {
             _superHeroService = superHeroService;
+            _logger = logger;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<SuperHero>>> GetSuperHeroes()
         {
+            _logger.LogError("Getting all superheroes");
+
             return await _superHeroService.GetSuperHeroes();
         }
 
